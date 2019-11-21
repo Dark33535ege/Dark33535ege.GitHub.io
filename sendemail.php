@@ -1,7 +1,6 @@
 <?php
 $name       = @trim(stripslashes($_POST['name'])); 
-$from       = @trim(stripslashes($_POST['email'])); 
-$subject    = @trim(stripslashes($_POST['subject'])); 
+$from       = @trim(stripslashes($_POST['email']));
 $message    = @trim(stripslashes($_POST['message'])); 
 $to   		= 'ismail.gugu@mail.ru';//replace with your email
 
