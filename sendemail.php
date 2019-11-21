@@ -1,18 +1,17 @@
 <?php
-$name       = @trim(stripslashes($_POST['name'])); 
-$from       = @trim(stripslashes($_POST['email'])); 
-$subject    = @trim(stripslashes($_POST['subject'])); 
-$message    = @trim(stripslashes($_POST['message'])); 
-$to    = 'ismail.gugu@mail.ru';//replace with your email
-
-$headers   = array();
-$headers[] = "MIME-Version: 1.0";
-$headers[] = "Content-type: text/plain; charset=iso-8859-1";
-$headers[] = "From: {$name} <{$from}>";
-$headers[] = "Reply-To: <{$from}>";
-$headers[] = "Subject: {$subject}";
-$headers[] = "X-Mailer: PHP/".phpversion();
-
-mail($to, $subject, $message, $headers);
- 
+$name = $_POST['name'];
+$email = $_POST['email'];
+$name = htmlspecialchars($name);
+$email = htmlspecialchars($email);
+$name = urldecode($name);
+$email = urldecode($email);
+$name = trim($name);
+$email = trim($email);
+//echo $name;
+//echo "<br>";
+//echo $email;
+if (mail("gugu.ismail@mail.ru", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,"From: ismail.gugu@mail.ru \r\n"))
+ {     echo "сообщение успешно отправлено";
+} else {
+    echo "при отправке сообщения возникли ошибки";
 }?>
